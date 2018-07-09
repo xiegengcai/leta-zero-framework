@@ -1,0 +1,40 @@
+server:
+  port: 38001
+
+spring:
+  application:
+    name: zero-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+
+logging:
+  file: logs/${spring.application.name}.log
+  level: debug
+
+rpc:
+  port: 38002
+  supported:
+    serialization: cn.leta.zero.serialize.FastJsonSerialization;cn.leta.zero.serialize.Hessian2Serialization;cn.leta.zero.serialize.HproseSerialization;cn.leta.zero.serialize.ProtobufSerialization
+  maxTimeoutInterval: 120
+  channel:
+    read:
+      idle: 30
+    write:
+      idle: 30
+    both:
+      idle: 120
+  service:
+    maxTimeout: 60
+    defaultTimeout: 30
+  packet:
+    maxFrameLength: 8192
+  threadSize:
+    boss: 1
+    woker: 3
+
+
+
+

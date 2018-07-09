@@ -1,0 +1,11 @@
+syntax = "proto3";
+package demo;
+
+
+option java_package = "cn.leta.zero";
+option java_outer_classname = "Message";
+
+message User {
+    string name = 1;
+    int32 age = 2;
+}
